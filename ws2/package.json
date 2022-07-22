@@ -8,10 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "react": "^18.2.0",
-    "redux": "^4.2.0",
-    "@monorepo/ws3": "1.0.0"
-  }
+  "license": "ISC"
 }

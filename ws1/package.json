@@ -10,9 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.6.0",
-    "jquery-mask-plugin": "^1.14.16",
-    "jquery-mousewheel": "^3.1.13",
-    "redux": "^4.2.0"
+    "@monorepo/ws2": "*"
   }
 }
