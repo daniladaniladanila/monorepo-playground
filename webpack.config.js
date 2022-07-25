@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -11,5 +12,37 @@ module.exports = {
     splitChunks: {
       chunks: 'all'
     }
-  }
+  },
+  devtool: 'eval',
+  plugins: [
+    new HtmlWebpackPlugin({
+      // If you pass a plain object, it will be merged with the default values
+      // (New in version 4)
+      // templateParameters: {
+      //   'foo': 'bar',
+      //   title: 123
+      // }, 
+      templateParameters: (compilation, assets, assetTags, options) => {
+        console.log({
+          assets,
+          assetTags, 
+        });
+        console.log({
+          a: assetTags.headTags
+        });
+        return {
+          compilation,
+          webpackConfig: compilation.options,
+          htmlWebpackPlugin: {
+            tags: assetTags,
+            files: assets,
+            options
+          },
+          'foo': 'bar'
+        };
+      },
+      template: 'index.template.js',
+      inject: false
+    })
+  ]
 }
